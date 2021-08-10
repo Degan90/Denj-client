@@ -10,12 +10,10 @@ import {
   FlatList,
 } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import { Colors } from "react-native/Libraries/NewAppScreen";
-import AppText from "./AppText";
 import Screen from "./Screen";
 import PickerItem from "./PickerItem";
 
-function AppPicker({ icon, items, placeholder, selectedItem, onSelectedItem }) {
+function AppPicker({ icon, items, placeholder, selectedItem, onSelectedItem ,PickerItemComponent = PickerItem,}) {
   const [modalVisible, setModalVisible] = useState(false);
   return (
     <>
@@ -30,7 +28,7 @@ function AppPicker({ icon, items, placeholder, selectedItem, onSelectedItem }) {
             />
           )}
           <Text style={styles.text}>
-            {selectedItem ? selectedItem.label : placeholder}
+            {selectedItem ? selectedItem : placeholder}
           </Text>
           <MaterialCommunityIcons name="chevron-down" size={20} color="gray" />
         </View>

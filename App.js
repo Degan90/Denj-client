@@ -40,7 +40,6 @@ export default function App() {
   const [user, setUser] = useState();
 
 
-
   return (
     // <WelcomeScreen />
     // <ViewImageScreen />
@@ -56,6 +55,9 @@ export default function App() {
     // <NavigationContainer>
     //   <AuthNavigator/>
     // </NavigationContainer>
+  //   <NavigationContainer>
+  //   <AppNavigator />
+  // </NavigationContainer>
 
     <AuthContext.Provider value={{ user, setUser }}>
       <NavigationContainer>

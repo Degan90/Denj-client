@@ -4,14 +4,16 @@ import { View, StyleSheet, ScrollView } from "react-native";
 import ErrorMessage from "./ErrorMessage";
 import ImageInput from "./ImageInput";
 
-function ImageInputList({name}) {
+function ImageInputList({name,formData,setFormData}) {
 const [imageUris, setImageUris] = useState([]);
 const { errors, touched } = useFormikContext();
 
 
   const handleAdd = (uri) => {
     setImageUris([...imageUris, uri]);
+    setFormData({ ...formData, image: imageUris })
   };
+
   const handleRemove = (uri) => {
     setImageUris(imageUris.filter((imageUri) => imageUri !== uri));
   };

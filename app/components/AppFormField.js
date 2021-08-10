@@ -1,8 +1,10 @@
 import React from "react";
-import { Text } from "react-native";
+import { useFormikContext } from "formik";
+
+
 import ErrorMessage from "./ErrorMessage";
-import {useFormikContext} from 'formik'
 import AppTextInput from "./AppTextInput";
+
 function AppFormField({ name, width, ...otherProps }) {
   const {
     setFieldTouched,
@@ -15,7 +17,7 @@ function AppFormField({ name, width, ...otherProps }) {
   return (
     <>
       <AppTextInput
-        // onBlur={() => setFieldTouched(name)}
+        onBlur={() => setFieldTouched(name)}
         // onChangeText={(text) => setFieldValue(name, text)}
         // value={values[name]}
         width={width}

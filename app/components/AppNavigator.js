@@ -9,6 +9,7 @@ import AccountNavigator from "./AccountNavigator";
 import {StyleSheet} from "react-native"
 
 
+
 const Tab = createBottomTabNavigator();
 function AppNavigator() {
     return (

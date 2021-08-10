@@ -8,14 +8,14 @@ import Screen from "../components/Screen";
 
 
 const menuItems = [
-  {
-    title: "My listings",
-    icon: {
-      name: "format-list-bulleted",
-      backgroundColor: "blue",
-    },
-    targetScreen:"list"
-  },
+  // {
+  //   title: "My listings",
+  //   icon: {
+  //     name: "format-list-bulleted",
+  //     backgroundColor: "blue",
+  //   },
+  //   targetScreen:"list"
+  // },
 
 ];
 
@@ -25,12 +25,13 @@ function AccountScreen({navigation}) {
 
 
 
+
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
         <ListItem
-          title={user.name}
-          image={require("../assets/pourya.jpg")}
+          title={user.userInfo}
+          // image={require("../assets/pourya.jpg")}
         />
       </View>
       <View style={styles.container}>

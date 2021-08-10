@@ -9,7 +9,7 @@ const Stack = createNativeStackNavigator();
 function AccountNavigator(props) {
     return (
        <Stack.Navigator>
-           <Stack.Screen  name="account" component={AccountScreen} />
+           <Stack.Screen  name="account" component={AccountScreen} options={{ headerShown: false }} />
        </Stack.Navigator>
     );
 }

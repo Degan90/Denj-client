@@ -1,21 +1,14 @@
 import { Formik } from "formik";
 import { StyleSheet } from "react-native";
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import AppButton from "../components/AppButton";
 import AppFromField from "../components/AppFormField";
 import Screen from "../components/Screen";
 import * as Yup from "yup";
-
-// const validationSchema = Yup.object().shape({
-//   name: Yup.string().min(4).label("Name"),
-//   userName: Yup.string().min(4).label("User Name"),
-//   password: Yup.string().min(6).label("password"),
-//   passwordConfirmation: Yup.string()
-//     .oneOf([Yup.ref("password"), null], "Passwords must match")
-//     .label("password Confirmation"),
-// });
+import AuthContext from "../auth/context";
 
 function SignUpScreen(props) {
+  const authContext = useContext(AuthContext);
   const initialFormData = {
     name: "",
     username: "",
@@ -26,12 +19,6 @@ function SignUpScreen(props) {
   const [formData, setFormData] = useState(initialFormData);
   const [error, setError] = useState(false);
   const [success, setSuccess] = useState(false);
-  // const handleChange = (text) => {
-  //   // setFormData((prevState) => {
-  //     // return { ...prevState, [event.target.id]: event.target.value };
-  //   // });
-  //   setFormData({name: text ,username:text, password:text,re_password:text })
-  // };
 
   const handleSignUp = async (event) => {
     event.preventDefault();
@@ -47,7 +34,7 @@ function SignUpScreen(props) {
       console.log(data);
       if (response.status === 201) {
         setSuccess(true);
-        const user = data.id;
+        const user = data;
         authContext.setUser(user);
       }
     } catch (error) {
@@ -80,9 +67,8 @@ function SignUpScreen(props) {
             placeholder="Name"
             autoCapitalize="none"
             autoCorrect={false}
-            // value={formData.name}
-            // onChangeText={handleChange}
-            onChangeText={(text) => setFormData({ name: text })}
+
+            onChangeText={(text) => setFormData({...formData, name: text })}
           />
 
           <AppFromField
@@ -91,9 +77,9 @@ function SignUpScreen(props) {
             icon="account"
             autoCapitalize="none"
             autoCorrect={false}
-            // value={formData.username}
-            onChangeText={(text) => setFormData({ userName: text })}
-            // onChangeText={handleChange}
+
+            onChangeText={(text) => setFormData({...formData, username: text })}
+
           />
 
           <AppFromField
@@ -102,24 +88,22 @@ function SignUpScreen(props) {
             autoCapitalize="none"
             icon="lock"
             autoCorrect={false}
-            // secureTextEntry
+            secureTextEntry
             textContentType="password"
-            // value={formData.password}
-            onChangeText={(text) => setFormData({ password: text })}
-            // onChangeText={handleChange}
+        
+            onChangeText={(text) => setFormData({ ...formData,password: text })}
+     
           />
 
           <AppFromField
             name="re_password"
-            placeholder="password Confirmation"
+            placeholder="re_password"
             autoCapitalize="none"
             icon="lock"
             autoCorrect={false}
-            // secureTextEntry
+            secureTextEntry
             textContentType="password"
-            // value={formData.re_password}
-            onChangeText={(text) => setFormData({ passwordConfirmation: text })}
-            // onChange={handleChange}
+            onChangeText={(text) => setFormData({...formData, re_password: text })}
             onBlur={handlePasswordMatch}
           />
 
