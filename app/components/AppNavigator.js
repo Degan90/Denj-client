@@ -15,7 +15,7 @@ function AppNavigator() {
     return (
       <Tab.Navigator >
           <Tab.Screen  name="Home" component={HomeNavigator}  options={{
-           tabBarIcon:({color}) => <MaterialCommunityIcons name="home" size={30} color={color}/>}} />
+           tabBarIcon:({color}) => <MaterialCommunityIcons name="campfire" size={30} color={color}/>}} />
           <Tab.Screen name="Add" component={NewList} options={{
            tabBarIcon:({color}) => <MaterialCommunityIcons name="plus-circle" size={30} color={color}/>}} />
           <Tab.Screen name="Account" component={AccountNavigator} options={{

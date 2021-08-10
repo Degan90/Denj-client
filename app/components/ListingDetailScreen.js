@@ -32,10 +32,6 @@ function ListingDetailScreen({ route }) {
           <Text style={styles.title}>Must Have Gears:</Text>
           <Text style={styles.text}>{detail.gears}</Text>
         </View>
-        <View style={styles.each}>
-          <Text style={styles.title}>Discoverer: </Text>
-          <Text style={styles.text}>{detail.discoverer}</Text>
-        </View>
       </View>
       </TouchableWithoutFeedback>
     </Swipeable>

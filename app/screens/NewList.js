@@ -16,7 +16,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const categories = [
-  { label: "Camping", value: 1, icon: "camp" },
+  { label: "Camping", value: 1, icon: "campground" },
   { label: "Diving", value: 2, icon: "snorkeling" },
   { label: "Hicking", value: 3, icon: "lock" },
 ];
@@ -95,6 +95,7 @@ function NewList({route}) {
   //   }
   // };
   console.log(formData);
+  console.log(formData.image);
 
   // const [uploadVisible, setUploadVisible] = useState(false)
 //   const [formData, setFormData] = useState(initialData);
