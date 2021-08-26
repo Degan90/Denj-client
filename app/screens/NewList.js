@@ -8,11 +8,6 @@ import AppPicker from "../components/AppPicker";
 import {  StyleSheet } from "react-native";
 import ImageInputList from "../components/ImageInputList";
 import * as Location from "expo-location";
-import LocationInputList from "../components/LocationInputList";
-import listingsApi from "../api/listings";
-import CategoryPickerItem from "../components/CategoryPickerItem";
-import FormImagePicker from "../components/FormImagePicker";
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 const categories = [
@@ -67,33 +62,6 @@ function NewList({route}) {
       console.log(err);
     }
   };
-  // const getDenjPlaces = async () => {
-  //   try {
-  //     const response = await fetch("http://127.0.0.1:8000/denjs/");
-  //     const data = await response.json();
-  //     console.log(data);
-  //   } catch (err) {
-  //     console.log(err);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getDenjPlaces();
-  // }, []);
-
-
-  // const handleSubmit = async () => {
-  //   try {
-  //     const value = await AsyncStorage.getItem('Token');
-  //     console.log(value);
-  //     if (value !== null) {
-  //       // We have data!!
-        
-  //     }
-  //   } catch (error) {
-  //     // Error retrieving data
-  //   }
-  // };
   console.log(formData);
   console.log(formData.image);
 
@@ -150,18 +118,9 @@ function NewList({route}) {
             icon="apps"
             name="category"
             placeholder="Category"
-            // PickerItemComponent={CategoryPickerItem}
-            // onChangeText={(text) =>
-            //   setFormData({ ...formData, category: category })
-            // }
+   
           />
-          {/* <AppFromField
-            name="category"
-            placeholder="category"
-            autoCapitalize="none"
-            autoCorrect={false}
-            onChangeText={(text) => setFormData({ ...formData, category: text })}
-          /> */}
+    
           <AppFromField
             name="name"
             placeholder="Place Name"
